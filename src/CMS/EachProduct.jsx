@@ -196,7 +196,7 @@ export default function EachProduct() {
 
         {/* Tabs Section */}
         <div className="mt-16">
-          <div className="flex border-b border-gray-200 mb-8">
+          <div className="flex border-b border-gray-200 mb-8 overflow-x-auto">
             {["description", "reviews", "specifications"].map((tab) => (
               <button
                 key={tab}

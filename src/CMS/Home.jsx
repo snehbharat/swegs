@@ -106,7 +106,7 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  console.log(productData);
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-amber-50 overflow-hidden">

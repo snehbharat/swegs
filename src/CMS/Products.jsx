@@ -141,8 +141,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   );
 };
 
-export default function Products({ productData, status }) {
-  const [currentPage, setCurrentPage] = useState(1);
+export default function Products({ productData, status, currentPage, setCurrentPage }) {
   const [isVisible, setIsVisible] = useState(false);
   const itemsPerPage = 12;
 

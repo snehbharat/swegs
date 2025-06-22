@@ -11,7 +11,7 @@ export default function Categories() {
     dispatch(categories());
   }, [dispatch]);
 
-  console.log(catData);
+ 
   return (
     <>
       {status === "loading" ? (

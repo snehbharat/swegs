@@ -9,9 +9,14 @@ export default function FilterDesktop() {
 
   // Local state for selected filters
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectedPrice, setSelectedPrice] = useState([]);
   const [sortOrder, setSortOrder] = useState("");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategories, selectedPrice, sortOrder]);
 
   useEffect(() => {
     dispatch(products());
@@ -115,13 +120,12 @@ export default function FilterDesktop() {
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-bold mb-4">Filters</h2>
             <button
-              className={`mb-4 px-2 py-1 rounded-md text-white ${
-                selectedCategories <= 0 &&
-                selectedPrice <= 0 &&
-                sortOrder === ""
+              className={`mb-4 px-2 py-1 rounded-md text-white ${selectedCategories <= 0 &&
+                  selectedPrice <= 0 &&
+                  sortOrder === ""
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-red-600 hover:bg-red-700"
-              }`}
+                }`}
               onClick={ClearFilters}
               disabled={
                 selectedCategories <= 0 &&
@@ -199,8 +203,13 @@ export default function FilterDesktop() {
 
       <div className="w-full md:w-3/4 bg-white p-4">
         {/* Hamburger Icon for small screens */}
-       
-        <Products productData={sortedProducts} status={status} />
+
+        <Products
+          productData={sortedProducts}
+          status={status}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </>
   );
